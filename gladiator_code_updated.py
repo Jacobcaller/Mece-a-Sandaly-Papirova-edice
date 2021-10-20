@@ -175,7 +175,7 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                 Nejmenší - min(80% šance) - cena 20 energie
                 Pro přeskočení kola zmačkněte Enter.
 : """)
-                    if zvol_utok == "max" or zvol_utok == "max":
+                    if zvol_utok == "max":
                             print("Na tento útok nemáte energii.")
                     else:
                         break
@@ -188,9 +188,7 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                 Nejmenší - min(80% šance) - cena 20 energie
                 Pro přeskočení kola zmačkněte Enter.
 : """)
-                    if zvol_utok == "max" or zvol_utok == "max":
-                        print("Na tento útok nemáte energii.")
-                    elif zvol_utok == "max" or zvol_utok == "str":
+                    if zvol_utok == "max" or zvol_utok == "str":
                         print("Na tento útok nemáte energii.")
                     else:
                         break
@@ -270,7 +268,7 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                 Nejmenší - min(80% šance) - cena 20 energie
                 Pro přeskočení kola zmačkněte Enter.
 : """)
-                    if zvol_utok == "max" or zvol_utok == "max":
+                    if zvol_utok == "max":
                             print("Na tento útok nemáte energii.")
                     else:
                         break
@@ -283,9 +281,7 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                 Nejmenší - min(80% šance) - cena 20 energie
                 Pro přeskočení kola zmačkněte Enter.
 : """)
-                    if zvol_utok == "max" or zvol_utok == "max":
-                        print("Na tento útok nemáte energii.")
-                    elif zvol_utok == "max" or zvol_utok == "str":
+                    if zvol_utok == "max" or zvol_utok == "str":
                         print("Na tento útok nemáte energii.")
                     else:
                         break
