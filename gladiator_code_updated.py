@@ -1,4 +1,20 @@
 import random
+
+print("""VÍTEJTE VE HŘE Meče & Sandály : Papírová edice
+Tato hra je určena pro 2 hráče. Každý z vás si vytvoří postavu, a rozřadí si body do různých atributů. 
+Ve hře je několik atributů:
+
+Zdraví - Za 1 bod v atributu Zdraví se vaší postavě přičte 10 bodů zdraví. Defaultní zdraví je 100 bodů. Po každém útoku se oboum hráčům pasivně přičte 1 bod života.
+
+Útok - Výše poškození útoku se liší podle jeho úrovně(Nejnižší, Střední, Nejvyšší). Každý útok má rozdílnou šanci na zásah. Za 1 bod v atributu Útoku se vaší postavě přičtou 3 body útoku.
+
+Energie - Každý útok stojí určité množství energie. Defaultní množství energie je 60 bodů, a po každém útoku dostanou oba hráči 10 bodů energie. Útoky stojí 20/30/40 bodů energie dle útoku. 
+Za 1 bod v atributu Energie se vaší postavě přičte 5 bodů energie.
+
+Štěstí - Každý útok má určitou procentuální šanci na zásah(80%/60%/40%). Za 1 bod v atributu Štěstí se šance na zásah u každého útoku zvedne o 4%.
+
+Jakými atributy svého bojovníka zušlechtíte ?
+""")
 #Akce: Vytvoření Class Gladiatori pro možnost hromadnných úprav, a lepší odkazování proměnných. 
 #Class pro určení a následnou možnost hromadnných úprav atributů bojovníků.
 #hrac1 = [Název bojovníka,Zdraví bojovníka, Rozsah útoku bojovníka [OD/DO] v kategoriích min/str/max, Energie bojovníka, Štěstí bojovníka]
@@ -15,6 +31,7 @@ class Gladiatori:
 #Akce: PŘIŘAZENÍ ATRIBUTŮ K POSTAVĚ HRÁČE 1
 #Tato proměnná slouží k zadání množství bodů pro rozdělení do atributů zápasníka.
 atributy_body_hrac1 = 10
+print("HRÁČ1")
 #Defaultní atributy bojovníka
 hrac1 = [input("Zadejte název vašeho válečníka: "),100,[5,10],[10,20],[25,35],60,0]
 #Pomocí smyčky while si hráč1 přidává body k atributům které si určí. Smyčka skončí po rozřazení všech bodů.
@@ -68,6 +85,7 @@ while atributy_body_hrac1 != 0:
 #Zde se zadané atributy přiřadí do classy Gladiatori. Přes class Gladiatori lze poté dělat hromadné upravy atributů. např. Zvýšit všem bojovníkům útok, atp.
 hrac1_zapasnik = Gladiatori(hrac1[0], hrac1[1], hrac1[2], hrac1[3], (hrac1[4]), hrac1[5], hrac1[6])
 
+print("HRÁČ2")
 #Akce: PŘIŘAZENÍ ATRIBUTŮ K POSTAVĚ HRÁČE 2 - stejné jako u Hráče1
 atributy_body_hrac2 = 10
 hrac2 = [input("Zadejte název vašeho válečníka: "),100,[10,15],[15,20],[25,30],60,0]
