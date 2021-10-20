@@ -21,15 +21,15 @@ hrac1 = [input("Zadejte název vašeho válečníka: "),100,[5,10],[10,20],[25,3
 #Pokud hráč zadá víc bodů než má, upozorní ho na to hláška, body se nepřiřadí, a hráč si musí vybrat znovu.
 while atributy_body_hrac1 != 0:
     print("""Atributy:
-    Zdraví = zdr 
-    Útok = utk
-    Energie = ener
-    Štěstí = stest    
+    Zdraví = zdravi 
+    Útok = utok
+    Energie = energie
+    Štěstí = stesti    
     """)
+    print("Počet bodů k dispozici: ",atributy_body_hrac1)
     #Atribut Zdraví
     volba = input("Zvolte atribut kterému chcete přiřadit body: ")
-    if volba == "zdr":
-        print("Počet bodů k dispozici: ",atributy_body_hrac1)
+    if volba == "zdravi":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac1:
             atributy_body_hrac1 -= pocet
@@ -37,8 +37,7 @@ while atributy_body_hrac1 != 0:
         else:
             print("Zadal jste větší počet bodů než máte k dispozici.")
     #Atribut Útok
-    if volba == "utk":
-        print("Počet bodů k dispozici: ",atributy_body_hrac1)
+    if volba == "utok":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac1:
             atributy_body_hrac1 -= pocet
@@ -51,8 +50,7 @@ while atributy_body_hrac1 != 0:
         else:
             print("Zadal jste větší počet bodů než máte k dispozici.")
     #Atribut Energie
-    if volba == "ener":
-        print("Počet bodů k dispozici: ",atributy_body_hrac1)
+    if volba == "energie":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac1:
             atributy_body_hrac1 -= pocet
@@ -60,8 +58,7 @@ while atributy_body_hrac1 != 0:
         else:
             print("Zadal jste větší počet bodů než máte k dispozici.")
     #Atribut Štěstí
-    if volba == "stest":
-        print("Počet bodů k dispozici: ",atributy_body_hrac1)
+    if volba == "stesti":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac1:
             atributy_body_hrac1 -= pocet
@@ -77,21 +74,20 @@ hrac2 = [input("Zadejte název vašeho válečníka: "),100,[10,15],[15,20],[25,
 while atributy_body_hrac2 != 0:
     print("""Atributy:
     Zdraví = zdr 
-    Útok = utk
-    Energie = ener
-    Štěstí = stest    
+    Útok = utok
+    Energie = energie
+    Štěstí = stesti    
     """)
+    print("Počet bodů k dispozici: ",atributy_body_hrac2)
     volba = input("Zvolte atribut kterému chcete přiřadit body: ")
-    if volba == "zdr":
-        print("Počet bodů k dispozici: ",atributy_body_hrac2)
+    if volba == "zdravi":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac2:
             atributy_body_hrac2 -= pocet
             hrac2[1] += pocet * 10
         else:
             print("Zadal jste větší počet bodů než máte k dispozici.")
-    if volba == "utk":
-        print("Počet bodů k dispozici: ",atributy_body_hrac2)
+    if volba == "utok":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac2:
             atributy_body_hrac2 -= pocet
@@ -103,16 +99,14 @@ while atributy_body_hrac2 != 0:
             hrac2[4][1] += pocet * 3
         else:
             print("Zadal jste větší počet bodů než máte k dispozici.")
-    if volba == "ener":
-        print("Počet bodů k dispozici: ",atributy_body_hrac2)
+    if volba == "energie":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac2:
             atributy_body_hrac2 -= pocet
             hrac2[5] += pocet * 5
         else:
             print("Zadal jste větší počet bodů než máte k dispozici.")
-    if volba == "stest":
-        print("Počet bodů k dispozici: ",atributy_body_hrac2)
+    if volba == "stesti":
         pocet = int(input("Zadejte počet bodů které chcete přiřadit: "))
         if pocet <= atributy_body_hrac2:
             atributy_body_hrac2 -= pocet
@@ -124,11 +118,13 @@ hrac2_zapasnik = Gladiatori(hrac2[0], hrac2[1], hrac2[2], hrac2[3], (hrac2[4]), 
 
 #Akce: TATO FUNKCE PROVÁDÍ SOUBOJ
 def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,hrac1_energie,hrac1_stesti,hrac2_jmeno,hrac2_zivot,hrac2_min_utok,hrac2_str_utok,hrac2_max_utok,hrac2_energie,hrac2_stesti):
-    print("Hráč 1 -",hrac1_jmeno,"VS","Hráč 2 -",hrac2_jmeno,"\n")
-
+    print(hrac1_jmeno,"VS",hrac2_jmeno,"\n")
     #Proměnná útok náhodně rozhodne kdo zaútočí první. Poté se hráči střídají. 
     utok = random.choices([0,1], weights = (50,50), k = 1)[0]
+    kolo = 0
     while hrac1_zivot > 0 and hrac2_zivot > 0 :
+        kolo +=1
+        print("Začíná kolo",kolo,".")
         #Tyto proměnné oboum hráčům po každém útoku obnoví 10 bodů energie, a 1 bod života.
         hrac1_energie += 10
         hrac2_energie += 10
@@ -142,8 +138,9 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
             utok += 1
             #Následující IF/ELIF a else zajišťují, aby hráč nemohl použít útok na který nemá dostatek energie. 
             if hrac1_energie >= 40:
-                print("Útočí zápasník hráče1 -",hrac1_jmeno)
+                print(hrac1_jmeno,"útočí na",hrac2_jmeno)
                 print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
+                print(hrac2_jmeno,"má",hrac2_energie,"bodů energie, a ",hrac2_zivot,"bodů života.")
                 zvol_utok = input("""Zvol druh útoku:
                 Nejsilnější - max(40% šance) - cena 40 energie
                 Střední - str(60% šance) - cena 30 energie
@@ -151,8 +148,9 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                 Pro přeskočení kola zmačkněte Enter.
 : """)
             elif hrac1_energie >= 30:
-                print("Útočí zápasník hráče1 -",hrac1_jmeno)
+                print(hrac1_jmeno,"útočí na",hrac2_jmeno)
                 print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
+                print(hrac2_jmeno,"má",hrac2_energie,"bodů energie, a ",hrac2_zivot,"bodů života.")
                 while True:
                     zvol_utok = input("""Zvol druh útoku:
                 Střední - str(60% šance) - cena 30 energie
@@ -164,8 +162,9 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                     else:
                         break
             elif hrac1_energie >= 20:
-                print("Útočí zápasník hráče1 -",hrac1_jmeno)
+                print(hrac1_jmeno,"útočí na",hrac2_jmeno)
                 print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
+                print(hrac2_jmeno,"má",hrac2_energie,"bodů energie, a ",hrac2_zivot,"bodů života.")
                 while True:
                     zvol_utok = input("""Zvol druh útoku:
                 Nejmenší - min(80% šance) - cena 20 energie
@@ -178,7 +177,6 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                     else:
                         break
             else:
-                print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
                 print("Hráč1 nemá dostatek energie na žádný útok.")
                 zvol_utok = "pauza"
                 
@@ -235,8 +233,9 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
             #Akce: VOLBA ÚTOKU HRÁČE 2 - vše stejné jako u hráče 1
             utok -= 1
             if hrac2_energie >= 40:
-                print("Útočí zápasník hráče2 -",hrac2_jmeno)
+                print(hrac2_jmeno,"útočí na",hrac1_jmeno)
                 print(hrac2_jmeno,"má",hrac2_energie,"bodů energie, a ",hrac2_zivot,"bodů života.")
+                print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
                 zvol_utok = input("""Zvol druh útoku:
                 Nejsilnější - max(40% šance) - cena 40 energie
                 Střední - str(60% šance) - cena 30 energie
@@ -244,8 +243,9 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                 Pro přeskočení kola zmačkněte Enter.
 : """)
             elif hrac2_energie >= 30:
-                print("Útočí zápasník hráče2 -",hrac2_jmeno)
+                print(hrac2_jmeno,"útočí na",hrac1_jmeno)
                 print(hrac2_jmeno,"má",hrac2_energie,"bodů energie, a ",hrac2_zivot,"bodů života.")
+                print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
                 while True:
                     zvol_utok = input("""Zvol druh útoku:
                 Střední - str(60% šance) - cena 30 energie
@@ -257,8 +257,9 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
                     else:
                         break
             elif hrac2_energie >= 20:
-                print("Útočí zápasník hráče2 -",hrac2_jmeno)
+                print(hrac2_jmeno,"útočí na",hrac1_jmeno)
                 print(hrac2_jmeno,"má",hrac2_energie,"bodů energie, a ",hrac2_zivot,"bodů života.")
+                print(hrac1_jmeno,"má",hrac1_energie,"bodů energie, a ",hrac1_zivot,"bodů života.")
                 while True:
                     zvol_utok = input("""Zvol druh útoku:
                 Nejmenší - min(80% šance) - cena 20 energie
@@ -318,10 +319,10 @@ def Souboj(hrac1_jmeno,hrac1_zivot,hrac1_min_utok,hrac1_str_utok,hrac1_max_utok,
 
     #Když životy jednoho zápasníka klesnou na nebo pod 0 bodů, ukončí se smyčka while, a pomocí funkce if porovnáme životy, a zjistíme který ze zápasníků vyhrál.
     if hrac1_zivot > hrac2_zivot:
-        print(hrac1_jmeno,"z týmu prvního hráče porazil válečníka",hrac2_jmeno,"z týmu druhého hráče.\n")
+        print(hrac1_jmeno,"porazil",hrac2_jmeno,"z.\n")
         
     elif hrac2_zivot > hrac1_zivot:
-        print(hrac2_jmeno,"z týmu druhého hráče porazil válečníka",hrac1_jmeno,"z týmu prvního hráče.\n")
+        print(hrac2_jmeno,"porazil",hrac1_jmeno,".\n")
     else:
         print("Souboj",hrac1_jmeno,"s",hrac2_jmeno,"skončil remízou. Žádný z týmu nevyhrál.\n")
 
